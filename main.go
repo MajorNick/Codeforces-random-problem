@@ -8,6 +8,7 @@ import (
 	"strings"
 	"math/rand"
 	"time"
+	"github.com/atotto/clipboard"
 )
 
 func main(){
@@ -24,8 +25,10 @@ for{
 		fmt.Println("ENTER PROPPER OPTIONS!")
 		continue
 	}
-		fmt.Println(getProblemUrl(first,second))
-
+		res := getProblemUrl(first,second)
+		fmt.Println(res)
+		fmt.Println("Already Copied.")
+		clipboard.WriteAll(res)
 	}
 }
 
