@@ -42,7 +42,9 @@ func getProblemUrl(first,second int)string{
 		}
 	
 		body, err := ioutil.ReadAll(resp.Body)
-
+		if err!=nil{
+			panic(err)
+		}
 		s := string(body)
 
 		p := "/problemset/problem/"
