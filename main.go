@@ -11,11 +11,29 @@ import (
 )
 
 func main(){
+for{
+	var first,second int  
+	fmt.Println()
+	fmt.Print("Enter Starting Difficulty: ")
+	fmt.Scanf("%d",&first)
+	fmt.Println()
+	fmt.Print("Enter Ending Difficulty: ")
+	fmt.Scanf("%d",&second)
+	fmt.Println()
+	if first>second{
+		fmt.Println("ENTER PROPPER OPTIONS!")
+		continue
+	}
+		fmt.Println(getProblemUrl(first,second))
 
-	var first,second,page int  = 900,1000,1
+	}
+}
+
+func getProblemUrl(first,second int)string{
 	problems := []string{}
 	var url string
 	var LastsFirst string
+	var page int  = 1
 	for {
 		url = fmt.Sprintf("https://codeforces.com/problemset/page/%d?tags=%d-%d",page,first,second)
 		resp,err := http.Get(url)
@@ -62,7 +80,7 @@ func main(){
 
 	i := r1.Intn(len(problems))
 	res := "https://codeforces.com"+problems[i]
-	fmt.Println(res)
+	return res
 }
 
 
